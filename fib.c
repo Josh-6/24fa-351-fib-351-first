@@ -24,3 +24,24 @@ int main()
 
    return 0;
 }
+
+
+   return 0;
+}
+
+
+   int sum = user_number + given_number;
+
+   int current = 1;
+   int old = 0;
+   int save;
+   if (letter == 'r')
+   {
+      for (int i = 0; i < sum; i++)
+      {
+         
+      }
+   }
+
+   return 0;
+}
