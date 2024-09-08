@@ -27,8 +27,6 @@ int recursive(int n)
       return (recursive(n-1) + recursive(n-2));
 }
 
-
-
 int main() 
 {
 
@@ -52,19 +50,20 @@ int main()
    //printf("file number: %d\n", given_number);
 
    int sum = user_number + given_number;
+   int fib;
    int fibo;
    
    if (letter == 'i')
    {
-      printf("file number: %d\n", sum);
       fibo = iterative(sum);
    }
    else
    {
       for(int i = 0; i < sum; i++)
       {
-         fibo = recursive(i);
+         fib = recursive(i);
       }
+      fibo = fib;
    }
    printf("%d", fibo);
 
