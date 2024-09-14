@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <inttypes.h>
 
-int iterative(int s)
+int64_t iterative(int s)
 {
-   int prev_num = 0;
-   int saved_num = 1;
-   int current_num;
+   int64_t  prev_num = 0;
+   int64_t  saved_num = 1;
+   int64_t  current_num;
 
    for(int i = 2; i < s; i++)
    {
@@ -17,7 +18,7 @@ int iterative(int s)
    return current_num;
 }
 
-int recursive(int n)
+int64_t recursive(int64_t n)
 {
    if(n == 0)
       return 0;
@@ -39,8 +40,8 @@ int main(int argc, char* argv[])
    fscanf(text, "%d", &given_number);
 
    int sum = user_number + given_number;
-   //printf("sum: %d\n", sum);
-   int fibo;
+   printf("sum: %d\n", sum - 1);
+   int64_t fibo;
    
    if (strcmp(argv[2], "i") == 0)
    {
@@ -53,7 +54,7 @@ int main(int argc, char* argv[])
          fibo = recursive(i);
       }
    }
-   //printf("%d\n", fibo);
+   printf("%ld" PRIi64 "\n", fibo);
    fclose(text);
    
    return 0;
