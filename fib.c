@@ -32,7 +32,6 @@ int main(int argc, char* argv[])
 
    int user_number = atoi(argv[1]);
    int given_number;
-   //char* letter = argv[2];
    FILE* text;
    
    text = fopen(argv[3], "r");
@@ -40,7 +39,7 @@ int main(int argc, char* argv[])
    fscanf(text, "%d", &given_number);
 
    int sum = user_number + given_number;
-   int fib;
+   //printf("sum: %d\n", sum);
    int fibo;
    
    if (strcmp(argv[2], "i") == 0)
@@ -51,11 +50,10 @@ int main(int argc, char* argv[])
    {
       for(int i = 0; i < sum; i++)
       {
-         fib = recursive(i);
+         fibo = recursive(i);
       }
-      fibo = fib;
    }
-   printf("%d", fibo);
+   //printf("%d\n", fibo);
    fclose(text);
    
    return 0;
