@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 
 int iterative(int s)
 {
@@ -27,33 +27,23 @@ int recursive(int n)
       return (recursive(n-1) + recursive(n-2));
 }
 
-int main() 
+int main(int argc, char* argv[]) 
 {
 
-   int user_number;
+   int user_number = atoi(argv[1]);
    int given_number;
-   char letter;
-   char file[10];
+   //char* letter = argv[2];
    FILE* text;
-
-   //printf("Enter a number, r or i, and a file name: \n");
    
-   scanf("%d %c %s" , &user_number, &letter, file);
-
-   //printf("\ninputted: %d %c %s\n" , user_number, letter, file);
-
-   text = fopen(file, "r");
-
+   text = fopen(argv[3], "r");
 
    fscanf(text, "%d", &given_number);
-
-   //printf("file number: %d\n", given_number);
 
    int sum = user_number + given_number;
    int fib;
    int fibo;
    
-   if (letter == 'i')
+   if (strcmp(argv[2], "i") == 0)
    {
       fibo = iterative(sum);
    }
@@ -66,6 +56,7 @@ int main()
       fibo = fib;
    }
    printf("%d", fibo);
-
+   fclose(text);
+   
    return 0;
 }
