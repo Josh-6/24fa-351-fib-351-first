@@ -3,20 +3,11 @@
 #include <string.h>
 #include <inttypes.h>
 
-long long int array[94];
-
-/*int64_t fib_wrapper(int num) 
+int iterative(int s)
 {
-   
-
-
-   return 0;
-}*/
-int64_t iterative(int s)
-{
-   int64_t  prev_num = 0;
-   int64_t  saved_num = 1;
-   int64_t  current_num;
+   int  prev_num = 0;
+   int  saved_num = 1;
+   int  current_num;
 
    for(int i = 2; i < s; i++)
    {
@@ -27,7 +18,7 @@ int64_t iterative(int s)
    return current_num;
 }
 
-int64_t recursive(int n)
+int recursive(int n)
 {
    if(n == 1)
    {
@@ -37,14 +28,9 @@ int64_t recursive(int n)
    {
       return 1;
    }
-   else if(array[n] != -1)
-   {
-      return array[n];
-   }
    else
    {
-      array[n] = (recursive(n - 1) + recursive(n-2));
-      return array[n];
+      return (recursive(n - 1) + recursive(n-2));
    }
 }
 
@@ -62,8 +48,8 @@ int main(int argc, char* argv[])
    fscanf(text, "%d", &given_number);
 
    int sum = user_number + given_number;
-   printf("sum: %d\n", sum);
-   int64_t fibo;
+   //printf("sum: %d\n", sum);
+   int fibo;
    
    if (strcmp(argv[2], "i") == 0)
    {
@@ -71,21 +57,9 @@ int main(int argc, char* argv[])
    }
    else
    {
-      /*for(int i = 1; i <= sum; i++)
-      {
-         fibo = recursive(i, array);
-         fprintf(saved, "%" PRIi64 "\n", fibo);
-         array[i] == fibo;
-      }*/
-      for (int i = 0; i <= sum; i++) 
-      {
-        array[i] = -1;
-      }
-
       fibo = recursive(sum);
    }
-   //fprintf(saved, "%d %" PRIi64 "\n", sum, fibo);
-   printf("%" PRIi64 "\n", fibo);
+   printf("%d", fibo);
    fclose(text);
    fclose(saved);
    
